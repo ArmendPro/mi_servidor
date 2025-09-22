@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title%}Universidad Loyola{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header class="bg-light text-white p-3">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="/" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-danger"><i class="fa fa-book me-3"></i>Universidad Loyola</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="/" class="nav-item nav-link active">Inicio</a>
+                <a href="/about" class="nav-item nav-link">About</a>
+                <a href="/carreras" class="nav-item nav-link">Carreras</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a href="team.html" class="dropdown-item">Our Team</a>
+                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                        <a href="404.html" class="dropdown-item">404 Page</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="/formulario" class="btn btn-warning py-4 px-lg-5 d-none d-lg-block">Inscribete Ahora<i class="fa fa-arrow-right ms-3"></i></a>
+        </div>
+    </nav>
+
+    </header>
+
+    <main class="flex-grow-1 py-4">
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center p-3 mt-auto">
+        <div class="container">
+            <p class="mb-0">&copy; {{ 2025 }} Universidad Loyola. Todos los derechos son reservados.</p>
+            <small class="text-secondary">Muy lejos vas a llegar</small>
+        </div>
+        
+    </footer>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+</body>
+</html>

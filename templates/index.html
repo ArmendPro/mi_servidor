@@ -1,0 +1,10 @@
+{% extends "base.html"%}
+{% block title%}Inicio{% endblock %}
+{% block content %}
+    <div class="text-center">
+        <h2 class="display-4">Bienvenido a mi servidor Flash</h2>
+        <p class="lead">Ejemplo practico con Bootstrap y flask 🚀.</p>
+        <a href="{{ url_for('formulario')}}" class="btn btn-success btn-lg">Ir al formulario</a>
+    </div>
+    
+{% endblock %}

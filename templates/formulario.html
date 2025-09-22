@@ -1,0 +1,18 @@
+{% extends "base.html"%}
+{% block title%}Formulario{% endblock %}
+{% block content %}
+    <h2>Formulario</h2>
+    <form method= "POST" action="{{ url_for('resultado')}}" class="mt-3">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Escribe tu nombre: </label>
+            <input type="text" name="nombre" class="form-control" id="nombre" required>       
+        </div>
+        <div class="mb-3">
+            <label for="edad" class="form-label">Escribe tu edad: </label>
+            <input type="number" name="edad" class="form-control" id="edad" required>       
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+    
+{% endblock %}
