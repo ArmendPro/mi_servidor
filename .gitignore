@@ -1,0 +1,39 @@
+# Entorno virtual
+.venv/
+venv/
+env/
+ENV/
+
+# Bytecode Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Bases de datos locales
+*.sqlite3
+*.db
+miapp.db
+
+# Archivos de configuración local / secretos
+.env
+.env.* 
+instance/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Node modules (si llegas a usar frontend)
+node_modules/
+
+# Otros
+*.egg-info/
+dist/
+build/
