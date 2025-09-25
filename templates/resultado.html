@@ -1,10 +1,223 @@
 {% extends "base.html"%}
 {% block title%}Resultado{% endblock %}
+{% block extra_head %}
+<style>
+    :root {
+        --primary: #A60303;
+        --secondary: #F2CB05;
+        --accent: #F20519;
+        --warning: #F2E205;
+        --dark: #000002;
+        --white: #FFFFFF;
+        --success: #28a745;
+        --gradient-primary: linear-gradient(135deg, #A60303, #000002);
+        --gradient-secondary: linear-gradient(135deg, #F2CB05, #F2E205);
+    }
+
+    .result-container {
+        background: var(--white);
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(166, 3, 3, 0.1);
+        padding: 3rem 2rem;
+        margin: 3rem auto;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .result-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: var(--gradient-secondary);
+    }
+
+    .success-icon {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 2rem;
+        background: var(--gradient-secondary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--dark);
+        font-size: 3rem;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    .result-title {
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .result-subtitle {
+        color: var(--dark);
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .info-card {
+        background: linear-gradient(135deg, #FFF8F0, #FFFFFF);
+        border: 2px solid var(--secondary);
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 2rem 0;
+    }
+
+    .user-info {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .highlight-text {
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+
+    .btn-actions {
+        margin-top: 2rem;
+    }
+
+    .btn-loyola {
+        background: var(--gradient-primary);
+        color: var(--white);
+        border: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin: 0.5rem;
+        display: inline-block;
+    }
+
+    .btn-loyola:hover {
+        background: var(--gradient-secondary);
+        color: var(--dark);
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
+
+    .btn-secondary-loyola {
+        background: transparent;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin: 0.5rem;
+        display: inline-block;
+    }
+
+    .btn-secondary-loyola:hover {
+        background: var(--primary);
+        color: var(--white);
+        text-decoration: none;
+    }
+
+    .next-steps {
+        background: #f8f9fa;
+        border-left: 4px solid var(--secondary);
+        padding: 1.5rem;
+        margin: 2rem 0;
+        border-radius: 0 10px 10px 0;
+    }
+
+    @media (max-width: 768px) {
+        .result-container {
+            padding: 2rem 1.5rem;
+            margin: 2rem auto;
+        }
+        
+        .result-title {
+            font-size: 2rem;
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            font-size: 2.5rem;
+        }
+    }
+</style>
+{% endblock %}
 {% block content %}
-    <h2>Resultado</h2>
-    <div class="alert alert-success">
-        <p>Hola <strong>{{ nombre }} </strong>¡Bienvenido a Flask!</p>
-        <p>Con la edad de <strong>{{ edad }} </strong>. Comencemos este viaje.</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="result-container">
+                <div class="success-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                
+                <h1 class="result-title">¡Solicitud Recibida!</h1>
+                <p class="result-subtitle">Tu información ha sido registrada exitosamente</p>
+                
+                <div class="info-card">
+                    <div class="user-info">
+                        <p class="mb-3">
+                            <i class="fas fa-user text-warning me-2"></i>
+                            Hola <span class="highlight-text">{{ nombre }}</span>, ¡Bienvenido(a) a Universidad Loyola!
+                        </p>
+                        <p class="mb-3">
+                            <i class="fas fa-birthday-cake text-warning me-2"></i>
+                            Con <span class="highlight-text">{{ edad }} años</span>, estás en el momento perfecto para comenzar esta nueva etapa.
+                        </p>
+                        <p class="mb-0">
+                            <i class="fas fa-rocket text-warning me-2"></i>
+                            <strong>"Muy lejos vas a llegar"</strong> - ¡Comencemos este viaje juntos!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="next-steps text-start">
+                    <h5 class="mb-3" style="color: var(--primary);">
+                        <i class="fas fa-clipboard-list me-2"></i>Próximos Pasos:
+                    </h5>
+                    <ul class="mb-0">
+                        <li>Revisaremos tu solicitud en las próximas 24 horas</li>
+                        <li>Te contactaremos para programar una entrevista</li>
+                        <li>Recibirás información sobre becas y ayudas financieras</li>
+                    </ul>
+                </div>
+
+                <div class="btn-actions">
+                    <a href="/carreras" class="btn-loyola">
+                        <i class="fas fa-graduation-cap me-2"></i>Ver Carreras
+                    </a>
+                    <a href="/about" class="btn-secondary-loyola">
+                        <i class="fas fa-info-circle me-2"></i>Conoce Más
+                    </a>
+                </div>
+
+                <div class="mt-4">
+                    <p class="mb-2">
+                        <i class="fas fa-phone text-warning me-2"></i>
+                        ¿Preguntas? Llámanos: <strong>+591 2 212-3456</strong>
+                    </p>
+                    <p class="mb-0">
+                        <i class="fas fa-envelope text-warning me-2"></i>
+                        Email: <strong>admisiones@universidadloyola.edu</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
     
 {% endblock %}

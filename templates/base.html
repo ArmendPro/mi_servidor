@@ -6,12 +6,17 @@
     <title>{% block title%}Universidad Loyola{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="d-flex flex-column min-vh-100">
     <header class="bg-light text-white p-3">
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
         <a href="/" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-danger"><i class="fa fa-book me-3"></i>Universidad Loyola</h2>
+            <h2 class="m-0 text-danger"><i class="fa fa-award me-3"></i>Universidad Loyola</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -22,11 +27,11 @@
                 <a href="/about" class="nav-item nav-link">About</a>
                 <a href="/carreras" class="nav-item nav-link">Carreras</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Posgrado</a>
                     <div class="dropdown-menu fade-down m-0">
-                        <a href="team.html" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
+                        <a href="team.html" class="dropdown-item">Nuestro equipo</a>
+                        <a href="testimonial.html" class="dropdown-item">Testimonios</a>
+                        <a href="404.html" class="dropdown-item">Becas</a>
                     </div>
                 </div>
                 <a href="contact.html" class="nav-item nav-link">Contact</a>
@@ -34,6 +39,96 @@
             <a href="/formulario" class="btn btn-warning py-4 px-lg-5 d-none d-lg-block">Inscribete Ahora<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
+
+    <div class="container-fluid p-0 mb-5">
+        <div class="owl-carousel header-carousel position-relative">
+            <div class="carousel-item-custom">
+                <img class="img-fluid" src="static/img/student.jpg" alt="Universidad Loyola - Campus">
+                <div class="carousel-overlay">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-lg-8 col-md-10">
+                                <div class="carousel-content">
+                                    <h5 class="animate__animated animate__slideInDown">Tu mejor decisión</h5>
+                                    <h1 class="display-3 animate__animated animate__slideInDown animate__delay-1s">¡Muy lejos vas a llegar!</h1>
+                                    <p class="animate__animated animate__slideInUp animate__delay-2s">Educando por más de 30 años a profesionales con excelencia académica y valores humanos sólidos que transforman la sociedad.</p>
+                                    <div class="animate__animated animate__slideInUp animate__delay-3s">
+                                        <a href="/about" class="btn btn-carousel-primary me-3">Conoce Más</a>
+                                        <a href="/formulario" class="btn btn-carousel-secondary">Inscríbete Ya</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item-custom">
+                <img class="img-fluid" src="static/img/Encuentro.jpg" alt="Estudiantes Universidad Loyola">
+                <div class="carousel-overlay">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-lg-8 col-md-10">
+                                <div class="carousel-content">
+                                    <h5 class="animate__animated animate__slideInDown">Excelencia Académica</h5>
+                                    <h1 class="display-3 animate__animated animate__slideInDown animate__delay-1s">Formación Integral de Calidad</h1>
+                                    <p class="animate__animated animate__slideInUp animate__delay-2s">Nuestros programas académicos combinan rigor científico, innovación tecnológica y formación en valores para preparar líderes del futuro.</p>
+                                    <div class="animate__animated animate__slideInUp animate__delay-3s">
+                                        <a href="/carreras" class="btn btn-carousel-primary me-3">Ver Carreras</a>
+                                        <a href="/admisiones" class="btn btn-carousel-secondary">Proceso de Admisión</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item-custom">
+                <img class="img-fluid" src="static/img/compar.jpg" alt="Vida Universitaria Loyola">
+                <div class="carousel-overlay">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-lg-8 col-md-10">
+                                <div class="carousel-content">
+                                    <h5 class="animate__animated animate__slideInDown">Vida Universitaria</h5>
+                                    <h1 class="display-3 animate__animated animate__slideInDown animate__delay-1s">Experiencias que Transforman</h1>
+                                    <p class="animate__animated animate__slideInUp animate__delay-2s">Más que educación: una comunidad vibrante donde desarrollarás tu potencial a través del deporte, cultura, investigación y servicio social.</p>
+                                    <div class="animate__animated animate__slideInUp animate__delay-3s">
+                                        <a href="/vida-estudiantil" class="btn btn-carousel-primary me-3">Vida Estudiantil</a>
+                                        <a href="/becas" class="btn btn-carousel-secondary">Becas y Ayudas</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item-custom">
+                <img class="img-fluid" src="static/img/loyo.jpg" alt="Laboratorios Universidad Loyola">
+                <div class="carousel-overlay">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-lg-8 col-md-10">
+                                <div class="carousel-content">
+                                    <h5 class="animate__animated animate__slideInDown">Innovación y Tecnología</h5>
+                                    <h1 class="display-3 animate__animated animate__slideInDown animate__delay-1s">Preparados para el Futuro</h1>
+                                    <p class="animate__animated animate__slideInUp animate__delay-2s">Laboratorios de última generación, metodologías innovadoras y alianzas estratégicas que garantizan una educación de vanguardia.</p>
+                                    <div class="animate__animated animate__slideInUp animate__delay-3s">
+                                        <a href="/investigacion" class="btn btn-carousel-primary me-3">Investigación</a>
+                                        <a href="/infraestructura" class="btn btn-carousel-secondary">Instalaciones</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
 
     </header>
 
@@ -43,13 +138,81 @@
         </div>
     </main>
 
-    <footer class="bg-dark text-white text-center p-3 mt-auto">
-        <div class="container">
+    <footer class="bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Muy lejos vas a llegar</h4>
+                    <a class="btn btn-link" href="/about">Sobre nosotros</a>
+                    <a class="btn btn-link" href="/contacto">Contactanos</a>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Contact</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Bajo Seguencoma</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+67090474</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>www.loyolabolivia.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/UniversidadLoyolaDeBolivia/"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+</svg></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.tiktok.com/@universidad_loyola"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">
+  <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+</svg></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/reel/DO31mkskZ6m/?utm_source=ig_web_copy_link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
             <p class="mb-0">&copy; {{ 2025 }} Universidad Loyola. Todos los derechos son reservados.</p>
             <small class="text-secondary">Muy lejos vas a llegar</small>
         </div>
         
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+
+    <script>
+        $(document).ready(function(){
+            
+            $('.header-carousel').owlCarousel({
+                loop: true,
+                margin: 0,
+                nav: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 6000,
+                autoplayHoverPause: true,
+                smartSpeed: 1000,
+                items: 1,
+                navText: [
+                    '<i class="fas fa-chevron-up"></i>',
+                    '<i class="fas fa-chevron-down"></i>'
+                ],
+                responsive: {
+                    0: {
+                        nav: false,
+                        dots: true
+                    },
+                    768: {
+                        nav: true,
+                        dots: true
+                    }
+                }
+            });
+
+           
+            $('.header-carousel').on('changed.owl.carousel', function(event) {
+                setTimeout(function() {
+                    $('.owl-item.active .animate__animated').each(function() {
+                        $(this).removeClass('animate__animated');
+                        setTimeout(() => {
+                            $(this).addClass('animate__animated');
+                        }, 100);
+                    });
+                }, 100);
+            });
+        });
+    </script>
 </body>
 </html>

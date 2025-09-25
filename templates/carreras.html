@@ -1,11 +1,334 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carreras</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends "base.html"%}
+{% block title%}Carreras{% endblock %}
+{% block extra_head %}
+<style>
+    :root {
+        --primary: #A60303;
+        --secondary: #F2CB05;
+        --accent: #F20519;
+        --warning: #F2E205;
+        --dark: #000002;
+        --white: #FFFFFF;
+        --light-bg: #FFF8F0;
+        --gradient-primary: linear-gradient(135deg, #A60303, #000002);
+        --gradient-secondary: linear-gradient(135deg, #F2CB05, #F2E205);
+    }
+
+    .page-header {
+        background: var(--gradient-primary);
+        color: var(--white);
+        padding: 4rem 0;
+        text-align: center;
+    }
+
+    .page-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .page-subtitle {
+        font-size: 1.2rem;
+        color: var(--warning);
+        font-weight: 500;
+    }
+
+    .career-card {
+        background: var(--white);
+        border-radius: 15px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        border-top: 4px solid var(--secondary);
+        height: 100%;
+    }
+
+    .career-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(166,3,3,0.15);
+        border-top-color: var(--accent);
+    }
+
+    .career-icon {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 1.5rem;
+        background: var(--gradient-secondary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--dark);
+        font-size: 2rem;
+    }
+
+    .career-title {
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .career-description {
+        color: var(--dark);
+        text-align: center;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .career-info {
+        background: var(--light-bg);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .career-info p {
+        margin: 0.5rem 0;
+        font-size: 0.9rem;
+    }
+
+    .career-info strong {
+        color: var(--primary);
+    }
+
+    .btn-more-info {
+        background: var(--primary);
+        color: var(--white);
+        border: none;
+        padding: 10px 25px;
+        border-radius: 25px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+
+    .btn-more-info:hover {
+        background: var(--accent);
+        color: var(--white);
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
+
+    .section-divider {
+        height: 3px;
+        background: var(--gradient-secondary);
+        border: none;
+        border-radius: 2px;
+        margin: 3rem 0;
+    }
+
+    .cta-section {
+        background: var(--light-bg);
+        padding: 3rem 0;
+        text-align: center;
+        border-radius: 15px;
+        margin: 3rem 0;
+    }
+
+    .btn-cta {
+        background: var(--gradient-primary);
+        color: var(--white);
+        border: none;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        margin: 0.5rem;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-cta:hover {
+        background: var(--gradient-secondary);
+        color: var(--dark);
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+        .page-title {
+            font-size: 2.2rem;
+        }
+        
+        .career-card {
+            padding: 1.5rem;
+        }
+    }
+</style>
+{% endblock %}
+{% block content %}
+
+<div class="container my-5">
+    <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+            <div class="career-card">
+                <div class="career-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3 class="career-title">Administración de Empresas</h3>
+                <p class="career-description">
+                    Forma líderes empresariales capaces de dirigir organizaciones con visión estratégica y responsabilidad social.
+                </p>
+                <div class="career-info">
+                    <p><strong>Duración:</strong> 5 años</p>
+                    <p><strong>Modalidad:</strong> Presencial</p>
+                    <p><strong>Título:</strong> Licenciado(a) en Administración</p>
+                </div>
+                <a href="/formulario" class="btn-more-info">
+                    <i class="fas fa-info-circle me-2"></i>Más Información
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="career-card">
+                <div class="career-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h3 class="career-title">Contaduría Pública</h3>
+                <p class="career-description">
+                    Profesionales expertos en contabilidad, auditoría y finanzas con sólidos conocimientos tributarios.
+                </p>
+                <div class="career-info">
+                    <p><strong>Duración:</strong> 5 años</p>
+                    <p><strong>Modalidad:</strong> Presencial</p>
+                    <p><strong>Título:</strong> Contador(a) Público</p>
+                </div>
+                <a href="/formulario" class="btn-more-info">
+                    <i class="fas fa-info-circle me-2"></i>Más Información
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="career-card">
+                <div class="career-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3 class="career-title">Ingeniería de Sistemas</h3>
+                <p class="career-description">
+                    Desarrolla soluciones tecnológicas innovadoras y lidera la transformación digital de las empresas.
+                </p>
+                <div class="career-info">
+                    <p><strong>Duración:</strong> 5 años</p>
+                    <p><strong>Modalidad:</strong> Presencial</p>
+                    <p><strong>Título:</strong> Ingeniero(a) de Sistemas</p>
+                </div>
+                <a href="/formulario" class="btn-more-info">
+                    <i class="fas fa-info-circle me-2"></i>Más Información
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="career-card">
+                <div class="career-icon">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h3 class="career-title">Medicina</h3>
+                <p class="career-description">
+                    Forma médicos íntegros comprometidos con la salud y el bienestar de la sociedad boliviana.
+                </p>
+                <div class="career-info">
+                    <p><strong>Duración:</strong> 6 años</p>
+                    <p><strong>Modalidad:</strong> Presencial</p>
+                    <p><strong>Título:</strong> Médico Cirujano</p>
+                </div>
+                <a href="/formulario" class="btn-more-info">
+                    <i class="fas fa-info-circle me-2"></i>Más Información
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="career-card">
+                <div class="career-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3 class="career-title">Psicología</h3>
+                <p class="career-description">
+                    Especialistas en el comportamiento humano con enfoque clínico, educativo y organizacional.
+                </p>
+                <div class="career-info">
+                    <p><strong>Duración:</strong> 5 años</p>
+                    <p><strong>Modalidad:</strong> Presencial</p>
+                    <p><strong>Título:</strong> Licenciado(a) en Psicología</p>
+                </div>
+                <a href="/formulario" class="btn-more-info">
+                    <i class="fas fa-info-circle me-2"></i>Más Información
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="career-card">
+                <div class="career-icon">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <h3 class="career-title">Derecho</h3>
+                <p class="career-description">
+                    Abogados comprometidos con la justicia, la ética y la defensa de los derechos fundamentales.
+                </p>
+                <div class="career-info">
+                    <p><strong>Duración:</strong> 5 años</p>
+                    <p><strong>Modalidad:</strong> Presencial</p>
+                    <p><strong>Título:</strong> Abogado(a)</p>
+                </div>
+                <a href="/formulario" class="btn-more-info">
+                    <i class="fas fa-info-circle me-2"></i>Más Información
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-8">
+            <h2 class="text-center mb-4" style="color: var(--primary); font-weight: 700;">
+                ¿Por qué estudiar en Universidad Loyola?
+            </h2>
+            <div class="row g-4 text-center">
+                <div class="col-md-4">
+                    <i class="fas fa-award fa-3x text-warning mb-3"></i>
+                    <h5 style="color: var(--primary);">Excelencia Académica</h5>
+                    <p>Programas acreditados y reconocidos nacionalmente</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-users fa-3x text-warning mb-3"></i>
+                    <h5 style="color: var(--primary);">Docentes Calificados</h5>
+                    <p>Profesionales con experiencia y formación de postgrado</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-handshake fa-3x text-warning mb-3"></i>
+                    <h5 style="color: var(--primary);">Inserción Laboral</h5>
+                    <p>95% de empleabilidad en nuestros graduados</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2 class="mb-4" style="color: var(--primary);">¿Listo para comenzar tu carrera profesional?</h2>
+        <p class="lead mb-4" style="color: var(--dark);">
+            Da el primer paso hacia tu futuro. En Universidad Loyola te acompañamos en todo el proceso.
+        </p>
+        <div>
+            <a href="/formulario" class="btn-cta">
+                <i class="fas fa-user-plus me-2"></i>Inscríbete Ahora
+            </a>
+            <a href="/about" class="btn-cta">
+                <i class="fas fa-info-circle me-2"></i>Conoce Más
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

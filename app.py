@@ -22,6 +22,10 @@ def saludo(nombre):
 def formulario():
     return render_template("formulario.html")
 
+@app.route("/carreras")
+def carreras():
+    return render_template("carreras.html")
+
 #Ruta que procesa, responde
 @app.route("/resultado", methods=["POST"])
 def resultado():

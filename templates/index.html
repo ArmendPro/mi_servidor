@@ -1,10 +1,47 @@
 {% extends "base.html"%}
 {% block title%}Inicio{% endblock %}
 {% block content %}
-    <div class="text-center">
-        <h2 class="display-4">Bienvenido a mi servidor Flash</h2>
-        <p class="lead">Ejemplo practico con Bootstrap y flask 🚀.</p>
-        <a href="{{ url_for('formulario')}}" class="btn btn-success btn-lg">Ir al formulario</a>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
+                            <h5 class="mb-3">Habilidades de las distintas carreras</h5>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia at beatae tempore, dolor delectus voluptas quis! Iusto provident, illum, necessitatibus ut amet nam, ea voluptas est voluptates vitae dolorum iure.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                            <h5 class="mb-3">Clases a distancia</h5>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero ipsum deleniti quas magni recusandae aspernatur voluptate ipsam quos nesciunt minima itaque velit, reiciendis cupiditate soluta accusamus! Ratione provident molestias harum.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-bus text-primary mb-4"></i>
+                            <h5 class="mb-3">Transporte</h5>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto earum obcaecati iusto! Voluptatum, officiis explicabo quisquam consectetur modi, laboriosam, dolore alias expedita error tempora accusamus aspernatur deserunt ab numquam molestiae!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
+                            <h5 class="mb-3">Biblioteca</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos ut animi cum ratione, placeat assumenda impedit voluptatum nobis officia saepe ab obcaecati odio, id esse mollitia laborum quae sunt laudantium?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     
 {% endblock %}

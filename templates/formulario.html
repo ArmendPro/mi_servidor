@@ -1,18 +1,292 @@
 {% extends "base.html"%}
 {% block title%}Formulario{% endblock %}
-{% block content %}
-    <h2>Formulario</h2>
-    <form method= "POST" action="{{ url_for('resultado')}}" class="mt-3">
-        <div class="mb-3">
-            <label for="nombre" class="form-label">Escribe tu nombre: </label>
-            <input type="text" name="nombre" class="form-control" id="nombre" required>       
-        </div>
-        <div class="mb-3">
-            <label for="edad" class="form-label">Escribe tu edad: </label>
-            <input type="number" name="edad" class="form-control" id="edad" required>       
-        </div>
+{% block extra_head %}
+<style>
+    :root {
+        --primary: #A60303;
+        --secondary: #F2CB05;
+        --accent: #F20519;
+        --warning: #F2E205;
+        --dark: #000002;
+        --white: #FFFFFF;
+        --light-bg: #FFF8F0;
+        --gradient-primary: linear-gradient(135deg, #A60303, #000002);
+        --gradient-secondary: linear-gradient(135deg, #F2CB05, #F2E205);
+    }
 
-        <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
+    .form-container {
+        background: var(--white);
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(166, 3, 3, 0.1);
+        padding: 3rem;
+        margin: 2rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .form-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: var(--gradient-secondary);
+    }
+
+    .form-title {
+        color: var(--primary);
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 1rem;
+        font-size: 2.2rem;
+    }
+
+    .form-subtitle {
+        text-align: center;
+        color: var(--dark);
+        margin-bottom: 2.5rem;
+        font-size: 1.1rem;
+    }
+
+    .form-label {
+        color: var(--dark);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .form-control {
+        border: 2px solid #e9ecef;
+        border-radius: 10px;
+        padding: 12px 15px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: var(--secondary);
+        box-shadow: 0 0 0 0.2rem rgba(242, 203, 5, 0.25);
+        background-color: #fefefe;
+    }
+
+    .form-select {
+        border: 2px solid #e9ecef;
+        border-radius: 10px;
+        padding: 12px 15px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .form-select:focus {
+        border-color: var(--secondary);
+        box-shadow: 0 0 0 0.2rem rgba(242, 203, 5, 0.25);
+    }
+
+    .btn-submit {
+        background: var(--gradient-primary);
+        color: var(--white);
+        border: none;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        width: 100%;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 15px rgba(166, 3, 3, 0.3);
+    }
+
+    .btn-submit:hover {
+        background: var(--gradient-secondary);
+        color: var(--dark);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 25px rgba(242, 203, 5, 0.4);
+    }
+
+    .input-group-text {
+        background: var(--light-bg);
+        border: 2px solid #e9ecef;
+        border-right: none;
+        color: var(--primary);
+    }
+
+    .input-group .form-control {
+        border-left: none;
+    }
+
+    .info-text {
+        color: var(--dark);
+        font-size: 0.9rem;
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+
+    .required-field::after {
+        content: ' *';
+        color: var(--accent);
+        font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+        .form-container {
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+        
+        .form-title {
+            font-size: 1.8rem;
+        }
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="form-container">
+                <h2 class="form-title">Formulario de Inscripción</h2>
+                <p class="form-subtitle">Comienza tu camino hacia el éxito académico en Universidad Loyola</p>
+                
+                <form method="POST" action="{{ url_for('resultado') }}" class="needs-validation" novalidate>
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label for="nombre" class="form-label required-field">Nombre Completo</label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <input type="text" 
+                                       name="nombre" 
+                                       class="form-control" 
+                                       id="nombre" 
+                                       placeholder="Ingresa tu nombre completo"
+                                       required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="email" class="form-label required-field">Correo Electrónico</label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <input type="email" 
+                                       name="email" 
+                                       class="form-control" 
+                                       id="email" 
+                                       placeholder="tu@email.com"
+                                       required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="telefono" class="form-label required-field">Teléfono</label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fas fa-phone"></i>
+                                </span>
+                                <input type="tel" 
+                                       name="telefono" 
+                                       class="form-control" 
+                                       id="telefono" 
+                                       placeholder="70123456"
+                                       required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="edad" class="form-label required-field">Edad</label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </span>
+                                <input type="number" 
+                                       name="edad" 
+                                       class="form-control" 
+                                       id="edad" 
+                                       min="16" 
+                                       max="65"
+                                       placeholder="18"
+                                       required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="carrera" class="form-label required-field">Carrera de Interés</label>
+                            <select name="carrera" class="form-select" id="carrera" required>
+                                <option value="" disabled selected>Selecciona una carrera</option>
+                                <option value="administracion">Administración de Empresas</option>
+                                <option value="Financiera">Financiera</option>
+                                <option value="sistemas">Ingeniería de Sistemas</option>
+                                <option value="industrial">Ingeniería Industrial</option>
+                                <option value="medicina">Medicina</option>
+                                <option value="enfermeria">Enfermería</option>
+                                <option value="psicologia">Psicología</option>
+                                <option value="derecho">Derecho</option>
+                                <option value="otra">Otra carrera</option>
+                            </select>
+                        </div>
+
+
+                        <div class="col-md-12 mb-4">
+                            <label for="ciudad" class="form-label required-field">Ciudad de Residencia</label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </span>
+                                <input type="text" 
+                                       name="ciudad" 
+                                       class="form-control" 
+                                       id="ciudad" 
+                                       placeholder="La Paz, Cochabamba, Santa Cruz..."
+                                       required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-submit">
+                        <i class="fas fa-paper-plane me-2"></i>
+                        Enviar Solicitud
+                    </button>
+
+                    <p class="info-text">
+                        <i class="fas fa-info-circle text-warning me-1"></i>
+                        Todos los campos marcados con <span style="color: var(--accent);">*</span> son obligatorios.
+                        <br>
+                        <small class="text-muted">Nos pondremos en contacto contigo en las próximas 24 horas.</small>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+
+document.getElementById('telefono').addEventListener('input', function(e) {
+    let value = e.target.value.replace(/\D/g, '');
+    if (value.length > 8) {
+        value = value.slice(0, 8);
+    }
+    e.target.value = value;
+});
+</script>
     
 {% endblock %}

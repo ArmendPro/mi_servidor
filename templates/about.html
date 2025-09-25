@@ -1,7 +1,256 @@
 {% extends "base.html"%}
 {% block title%}About{% endblock %}
+{% block extra_head %}
+<style>
+    :root {
+        --primary: #A60303;
+        --secondary: #F2CB05;
+        --accent: #F20519;
+        --warning: #F2E205;
+        --dark: #000002;
+        --white: #FFFFFF;
+        --light-bg: #FFF8F0;
+        --gradient-primary: linear-gradient(135deg, #A60303, #000002);
+        --gradient-secondary: linear-gradient(135deg, #F2CB05, #F2E205);
+    }
+
+    .hero-section {
+        background: var(--gradient-primary);
+        color: var(--white);
+        padding: 60px 0;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+        color: var(--warning);
+        font-size: 1.2rem;
+        font-weight: 600;
+        font-style: italic;
+    }
+
+    .stats-card {
+        background: var(--white);
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        border-top: 4px solid var(--secondary);
+    }
+
+    .stats-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(166,3,3,0.2);
+    }
+
+    .stats-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--primary);
+        display: block;
+    }
+
+    .stats-label {
+        color: var(--dark);
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+
+    .info-card {
+        background: var(--white);
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        height: 100%;
+    }
+
+    .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(166,3,3,0.15);
+    }
+
+    .info-card h3 {
+        color: var(--primary);
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .section-title {
+        color: var(--primary);
+        font-weight: 700;
+        margin-bottom: 2rem;
+        text-align: center;
+        position: relative;
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: var(--gradient-secondary);
+        border-radius: 2px;
+    }
+
+    .cta-section {
+        background: var(--gradient-secondary);
+        padding: 3rem 0;
+        text-align: center;
+    }
+
+    .btn-cta {
+        background: var(--primary);
+        color: var(--white);
+        border: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        margin: 0.5rem;
+    }
+
+    .btn-cta:hover {
+        background: var(--dark);
+        transform: translateY(-2px);
+        color: var(--white);
+    }
+
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 2.2rem;
+        }
+    }
+</style>
+{% endblock %}
 {% block content %}
-    <h2>Acerca de esta aplicacion</h2>
-    <p>Esta servidor fue creada con <strong>Flask</strong> y se estabiliza con <strong>Bootstrap</strong></p>
-    <p>Es un proyecto de aprendizaje paso a paso</p>
+<div class="container my-5">
+    <div class="row g-4 mb-5">
+        <div class="col-lg-3 col-md-6">
+            <div class="stats-card">
+                <span class="stats-number">30+</span>
+                <p class="stats-label">Años de Experiencia</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="stats-card">
+                <span class="stats-number">15K+</span>
+                <p class="stats-label">Graduados</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="stats-card">
+                <span class="stats-number">15+</span>
+                <p class="stats-label">Carreras</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="stats-card">
+                <span class="stats-number">95%</span>
+                <p class="stats-label">Empleabilidad</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-lg-6">
+            <div class="info-card">
+                <h3><i class="fas fa-bullseye text-warning me-2"></i>Nuestra Misión</h3>
+                <p>Formar profesionales íntegros, competentes y comprometidos con el desarrollo sostenible de la sociedad, mediante una educación de excelencia basada en valores cristianos.</p>
+                <ul class="list-unstyled mt-3">
+                    <li><i class="fas fa-check-circle text-warning me-2"></i>Educación integral de calidad</li>
+                    <li><i class="fas fa-check-circle text-warning me-2"></i>Investigación e innovación</li>
+                    <li><i class="fas fa-check-circle text-warning me-2"></i>Formación en valores y ética</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="info-card">
+                <h3><i class="fas fa-eye text-warning me-2"></i>Nuestra Visión</h3>
+                <p>Ser una universidad de referencia nacional, reconocida por su excelencia académica, investigación de impacto y formación de líderes transformadores.</p>
+                <ul class="list-unstyled mt-3">
+                    <li><i class="fas fa-star text-warning me-2"></i>Liderazgo en educación superior</li>
+                    <li><i class="fas fa-star text-warning me-2"></i>Innovación educativa constante</li>
+                    <li><i class="fas fa-star text-warning me-2"></i>Impacto social positivo</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+    <h2 class="section-title">Nuestros Valores</h2>
+    <div class="row g-4 mb-5">
+        <div class="col-lg-4 col-md-6">
+            <div class="info-card text-center">
+                <i class="fas fa-heart fa-3x text-warning mb-3"></i>
+                <h4 style="color: var(--primary);">Integridad</h4>
+                <p>Actuamos con honestidad y transparencia en todos nuestros procesos.</p>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="info-card text-center">
+                <i class="fas fa-trophy fa-3x text-warning mb-3"></i>
+                <h4 style="color: var(--primary);">Excelencia</h4>
+                <p>Buscamos constantemente la mejora continua en la educación.</p>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="info-card text-center">
+                <i class="fas fa-hands-helping fa-3x text-warning mb-3"></i>
+                <h4 style="color: var(--primary);">Solidaridad</h4>
+                <p>Promovemos el compromiso social y la responsabilidad comunitaria.</p>
+            </div>
+        </div>
+    </div>
+
+    
+    <h2 class="section-title">Nuestra Historia</h2>
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-8">
+            <div class="info-card">
+                <div class="row text-center">
+                    <div class="col-md-4 mb-3">
+                        <h3 style="color: var(--primary);">1994</h3>
+                        <p><strong>Fundación</strong><br>Inicio con carreras de Administración y Contaduría</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h3 style="color: var(--primary);">2009</h3>
+                        <p><strong>Crecimiento</strong><br>Expansión a Ingeniería y Ciencias de la Salud</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h3 style="color: var(--primary);">2023</h3>
+                        <p><strong>Modernización</strong><br>Campus digital y metodologías innovadoras</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="cta-section">
+    <div class="container">
+        <h2 class="mb-4" style="color: var(--dark);">¿Listo para Transformar tu Futuro?</h2>
+        <p class="lead mb-4" style="color: var(--dark);">Únete a la familia Loyola y descubre todo tu potencial.</p>
+        <div>
+            <a href="/carreras" class="btn btn-cta">
+                <i class="fas fa-graduation-cap me-2"></i>Ver Carreras
+            </a>
+            <a href="/formulario" class="btn btn-cta">
+                <i class="fas fa-user-plus me-2"></i>Inscríbete Ahora
+            </a>
+        </div>
+    </div>
+</section>
 {% endblock %}
